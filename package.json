@@ -1,0 +1,31 @@
+{
+  "name": "hhm-discord-bot",
+  "version": "3.0.0",
+  "description": "A discord bot for the \"HHM Elit Klub\" server",
+  "main": "bot.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GuntherTryThings/hhm-discord-bot.git"
+  },
+  "keywords": [
+    "discord",
+    "discord.js",
+    "bot"
+  ],
+  "author": "Bálint \"Günther\" Lengyel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GuntherTryThings/hhm-discord-bot/issues"
+  },
+  "homepage": "https://github.com/GuntherTryThings/hhm-discord-bot#readme",
+  "dependencies": {
+    "canvas": "^2.6.1",
+    "cron": "^1.8.2",
+    "discord.js": "^12.4.1",
+    "random-puppy": "^1.1.0",
+    "rss-parser": "^3.9.0"
+  }
+}
