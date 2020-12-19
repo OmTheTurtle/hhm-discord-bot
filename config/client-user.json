@@ -1,0 +1,9 @@
+{
+    "PRESENCE": {
+        "status": "",
+        "activity": {
+            "name": "!help a működő parancsok lekérdezéséhez",
+            "type": "PLAYING"
+        }
+    }
+}
