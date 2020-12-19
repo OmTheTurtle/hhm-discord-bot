@@ -1,8 +1,14 @@
-module.exports = (message) => {
-    message.channel.send(createEmbedMessage());
+const User = require('../../database/models/user');
+
+module.exports = async (message) => {
+    const user = await User.findOne({ where: { discordId: message.author.id } });
+    if(user.oldView)
+        message.channel.send(generateOldHelp());
+    else
+        message.channel.send(generateNewHelp());
 };
 
-function createEmbedMessage() {
+function generateNewHelp() {
     return {
         embed: {
             title: 'Parancsok listája',
@@ -23,15 +29,17 @@ function createEmbedMessage() {
                 },
                 {
                     name: 'Kaszinó',
-                    value: '~~`!kockazas` - Kockavetés\n`' + '!fkr` - Félkarú rabló~~',
+                    value:
+                        '`!kockazas` - Kockavetés\n' +
+                        '~~`!fkr` - Félkarú rabló~~',
                 },
                 {
                     name: 'Lekérdezés',
                     value:
-                        '~~`!batyum` - Batyud lekérdezése~~\n' +
-                        '~~`!topgazdagok` - Top tíz leggazdagabb felhasználó lekérdezése~~\n' +
-                        '~~`!topcsorok` - Top tíz legszegényebb felhasználó lekérdezése~~\n' +
-                        '~~`!uzenet` - Üzeneteid számának lekérdezése~~\n' +
+                        '`!batyum` - Batyud lekérdezése\n' +
+                        '`!topgazdagok` - Top tíz leggazdagabb felhasználó lekérdezése\n' +
+                        '`!topcsorok` - Top tíz legszegényebb felhasználó lekérdezése\n' +
+                        '`!uzenet` - Üzeneteid számának lekérdezése\n' +
                         '~~`!topfelhasznalok` - Top tíz legaktívabb felhasználó lekérdezése~~\n' +
                         '~~`!simppoints` - Simp pontjaid lekérdezése~~\n' +
                         '~~`!topsimp` - Top tíz legsimpebb felhasználó lekérdezése~~\n' +
@@ -42,7 +50,7 @@ function createEmbedMessage() {
                     value:
                         '`!cute` - Random cuki kép redditről\n' +
                         '`!progmeme` - Random programozás related meme redditről\n' +
-                        '~~`!nsfw` - NSFW zsákbamacska redditről~~\n' +
+                        '`!nsfw` - NSFW zsákbamacska redditről\n' +
                         '`!greentext` - Random greentext redditről',
                 },
                 {
@@ -57,7 +65,9 @@ function createEmbedMessage() {
                 },
                 {
                     name: 'Infó',
-                    value: '`!help` - Ez az embed\n' + '`!info` - Információk a botról',
+                    value:
+                        '`!help` - Ez az embed\n' +
+                        '`!info` - Információk a botról',
                 },
                 {
                     name: 'Egyéb',
@@ -66,9 +76,64 @@ function createEmbedMessage() {
                         '~~`!lolieldonti A vagy B` - Loli eldönti neked, hogy melyik a helyes opció~~\n' +
                         '`!tinder` - Tinder match, ha már irl egyed sincs\n' +
                         '~~`!szosalata` - Szósaláta lekérdezése az elmúlt 40 üzenetből~~\n' +
-                        '~~`!nyeroszam` - Napi új esetek és elhunytak lekérdezése~~',
+                        '~~`!nyeroszam` - Napi új esetek és elhunytak lekérdezése~~\n' +
+                        '`!oldview on/off` - a régi (embed mentes) nézet be/kikapcsolása'
                 },
             ],
         },
     };
+}
+
+function generateOldHelp() {
+    return `\`\`\`md
+Parancsok:
+
+    ----- RANGOK -----
+    soros - Liberált sorosbérenc csoport választása
+    garda - Nemzeti gárdista csoport választása
+    central - Centralista cuck csoport választása
+
+    ----- VÉLEMÉNYNYILVÁNÍTÁS -----
+    konnygaz - Könnygáz küldése
+    tisztelet - Tisztelet küldése
+
+    ----- KASZINÓ -----
+    kockazas - Kockavetés Gyuri ellen
+X   fkr - Félkarú rabló
+
+    ----- LEKÉRDEZÉS -----
+    batyum - Batyud lekérdezése
+X   topgazdagok - Top tíz leggazdagabb felhasználó lekérdezése
+X   topcsorok - Top tíz legszegényebb felhasználó lekérdezése
+    uzenet - Üzeneteid számának lekérdezése
+X   topfelhasznalok - Top tíz legaktívabb felhasználó lekérdezése
+X   simppoints - Simp pontjaid lekérdezése
+X   topsimp - Top tíz legsimpebb felhasználó lekérdezése
+X   card - Legenerálja a HHM kártyád
+
+    ----- RANDOM KÉP -----
+    cute - Random cuki kép
+    ph - ProgrammerHumor kép
+    nsfw - NSFW zsákbamacska
+    greentext - Random greentext redditről 
+
+    ----- TALLÉRHOZ KAPCSOLÓDÓ -----
+X   adomany @név összeg - Adomány küldése
+X   kuss @név - Felhasználó némítása 1 órára 1000 tallérért cserébe
+X   felvesz - Tallérok felvétele
+X   rablas - megpróbálsz kirabolni valakit a szerveren
+X   atnevez @név új becenév - Felhasználó átnevezése 200 tallérért cserébe
+
+    ----- EGYÉB -----
+    lolitext - Loli megmondja
+X   lolieldonti a VAGY b - Loli eldönti neked
+    tinder - Tinder match, ha már irl egyed sincs
+X   szosalata - Szósaláta lekérdezése az elmúlt 40 üzenetből
+X   nyeroszam - Napi új esetek lekérdezése
+X   bet - fogadás a holnapi covid fertőzöttekre
+    oldview on/off - a régi (embed mentes) nézet be/kikapcsolása
+
+    ------------------------------------------
+    help - ez a menü
+    \`\`\``;
 }

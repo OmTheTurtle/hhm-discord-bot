@@ -8,7 +8,7 @@ function createEmbedMessage() {
     return {
         embed: {
             title: 'Információk a botról',
-            color: 3735424,
+            color: 63487,
             fields: [
                 {
                     name: 'Verzió:',

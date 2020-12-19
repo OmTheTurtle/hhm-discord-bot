@@ -1,3 +1,3 @@
-module.exports = (message) => {
-    message.channel.send('Gratulálok! Most végre nem basztad el te szerencsétlen.');
+module.exports = async (message) => {
+    message.channel.send('```json\n' + JSON.stringify(message, null, "\t") + '```');
 };

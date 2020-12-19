@@ -1,5 +1,4 @@
 const { BOT_TOKEN } = require('./config/token.json');
-const { DEVELOPER_CHANNEL_ID } = require('./config/channelIds.json');
 
 const Discord = require('discord.js');
 const client = new Discord.Client({ partials: ['USER', 'GUILD_MEMBER', 'CHANNEL', 'MESSAGE', 'REACTION'] });
@@ -10,8 +9,11 @@ const guildMemberRemove = require('./events/guild-member-remove');
 const guildMemberUpdate = require('./events/guild-member-update');
 const userMessageHandler = require('./handlers/message-handler');
 
-client.once('ready', () => {
+const { databaseConnect } = require('./database/sequelize');
+
+client.once('ready', async () => {
     clientIsReady(client);
+    await databaseConnect();
 });
 
 client.on('guildMemberAdd', (member) => {
@@ -27,7 +29,7 @@ client.on('guildMemberUpdate', (oldMember, newMember) => {
 });
 
 client.on('message', async (userMessage) => {
-    if (userMessage.channel.id == DEVELOPER_CHANNEL_ID) userMessageHandler(userMessage);
+    userMessageHandler(userMessage);
 });
 
 client.login(BOT_TOKEN);

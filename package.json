@@ -4,7 +4,8 @@
   "description": "A discord bot for the \"HHM Elit Klub\" server",
   "main": "bot.js",
   "scripts": {
-    "test": "start"
+    "test": "start",
+    "dev": "nodemon bot.js"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,13 @@
     "canvas": "^2.6.1",
     "cron": "^1.8.2",
     "discord.js": "^12.4.1",
+    "mysql2": "^2.2.5",
+    "node-fetch": "^2.6.1",
     "random-puppy": "^1.1.0",
-    "rss-parser": "^3.9.0"
+    "rss-parser": "^3.9.0",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
