@@ -39,7 +39,7 @@ function generateNewHelp() {
             "`!topgazdagok` - Top tíz leggazdagabb felhasználó lekérdezése\n" +
             "`!topcsorok` - Top tíz legszegényebb felhasználó lekérdezése\n" +
             "`!uzenet` - Üzeneteid számának lekérdezése\n" +
-            "~~`!topfelhasznalok` - Top tíz legaktívabb felhasználó lekérdezése~~\n" +
+            "`!topfelhasznalok` - Top tíz legaktívabb felhasználó lekérdezése\n" +
             "~~`!simppoints` - Simp pontjaid lekérdezése~~\n" +
             "~~`!topsimp` - Top tíz legsimpebb felhasználó lekérdezése~~\n" +
             "~~`!card` - Legenerálja a HHM kártyád~~",
@@ -100,10 +100,10 @@ X   fkr - Félkarú rabló
 
     ----- LEKÉRDEZÉS -----
     batyum - Batyud lekérdezése
-X   topgazdagok - Top tíz leggazdagabb felhasználó lekérdezése
-X   topcsorok - Top tíz legszegényebb felhasználó lekérdezése
+    topgazdagok - Top tíz leggazdagabb felhasználó lekérdezése
+    topcsorok - Top tíz legszegényebb felhasználó lekérdezése
     uzenet - Üzeneteid számának lekérdezése
-X   topfelhasznalok - Top tíz legaktívabb felhasználó lekérdezése
+    topfelhasznalok - Top tíz legaktívabb felhasználó lekérdezése
 X   simppoints - Simp pontjaid lekérdezése
 X   topsimp - Top tíz legsimpebb felhasználó lekérdezése
 X   card - Legenerálja a HHM kártyád
