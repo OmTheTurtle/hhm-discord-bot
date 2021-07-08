@@ -1,10 +1,11 @@
 const { createCanvas, loadImage } = require("canvas")
 let Discord = require("discord.js")
 
-// TODO: hat ezt refaktoralni kene
+// TODO: hat ezt refaktoralni kene, meg ugy megcsinalni mukodore :(((((
 const MAX = 18
 
-async function main(msg, args) {
+async function main(msg) {
+  const args = msg.arguments
   const canvas = createCanvas(1200, 460)
   const ctx = canvas.getContext("2d")
 
