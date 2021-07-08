@@ -1,3 +1,4 @@
+// TODO: extract to eldontes-commons to share with lolieldonti
 module.exports = async (message) => {
   const orCount = message.arguments.filter((it) => it === "vagy").length
 

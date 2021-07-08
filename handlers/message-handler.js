@@ -49,10 +49,12 @@ async function executeCommand(message, lastFolderInPath) {
 }
 
 function handleCommandError(message, error) {
-  if (message.channel != DEVELOPER_CHANNEL_ID)
+  if (message.channel != DEVELOPER_CHANNEL_ID) {
     message.channel.send(
       `<@${DEVELOPER_GUNTHER_USER_ID}> éppen "újraírás" címszóval szétbassza mindenem, így most csak néhány parancsom működik. \`!help\` a működő parancsok lekérdezéséhez.`
     )
+    console.error(error)
+  }
   if (error.message.substring(0, 18) != "Cannot find module")
     logToDeveloperChannel(message, error)
 }
