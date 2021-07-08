@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: "gyuri"
+      POSTGRES_PASSWORD: "gyuri"
+      POSTGRES_DB: "gyuribot"
+    networks:
+      gyuri-network:
+        aliases:
+          - postgresql.db
+    volumes:
+      - postgres:/var/lib/postgresql/gyuribot-data
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    depends_on:
+      - postgres
+    stdin_open: true
+    tty: true
+    networks:
+      - gyuri-network
+
+volumes:
+  postgres:
+networks:
+  gyuri-network:
