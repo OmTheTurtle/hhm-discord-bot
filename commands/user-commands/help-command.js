@@ -71,6 +71,7 @@ function generateNewHelp() {
           value:
             "`!lolitext` - Loli megmondja\n" +
             "~~`!lolieldonti A vagy B` - Loli eldönti neked, hogy melyik a helyes opció~~\n" +
+            "!eldontes a VAGY b - Gyuri dönt helyetted" +
             "`!tinder` - Tinder match, ha már irl egyed sincs\n" +
             "~~`!szosalata` - Szósaláta lekérdezése az elmúlt 40 üzenetből~~\n" +
             "~~`!nyeroszam` - Napi új esetek és elhunytak lekérdezése~~\n" +
@@ -124,6 +125,7 @@ X   atnevez @név új becenév - Felhasználó átnevezése 200 tallérért cser
     ----- EGYÉB -----
     lolitext - Loli megmondja
 X   lolieldonti a VAGY b - Loli eldönti neked
+    eldontes a VAGY b - Döntések egyszerűvé téve
     tinder - Tinder match, ha már irl egyed sincs
 X   szosalata - Szósaláta lekérdezése az elmúlt 40 üzenetből
 X   nyeroszam - Napi új esetek lekérdezése
