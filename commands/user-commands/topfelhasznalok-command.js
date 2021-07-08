@@ -12,8 +12,13 @@ module.exports = async (message) => {
       `<@${DEVELOPER_GUNTHER_USER_ID}> megint elbaszott valamit, így ezt most nem tudod lekérdezni.`
     )
 
+  const user = await User.findOne({ where: { discordId: message.author.id } })
   const allMessages = await User.sum("messageCount")
-  message.channel.send(createEmbedMessage(users, allMessages))
+  if (user.oldView) {
+    message.channel.send(createOldMessage(users, allMessages))
+  } else {
+    message.channel.send(createEmbedMessage(users, allMessages))
+  }
 }
 
 function createEmbedMessage(users, allMessages) {
@@ -34,4 +39,21 @@ function generateEmbedFields(users, allMessages) {
     ).toFixed(2)}%`,
     value: user.messageCount,
   }))
+}
+
+function createOldMessage(users, allMessages) {
+  return `
+**Top 10 legaktívabb felhasználó**\n:
+${generateOldFields(users, allMessages).join("\n")}
+`
+}
+
+function generateOldFields(users, allMessages) {
+  return users.map(
+    (user, index) =>
+      `${index + 1}. **${user.username}** (${user.messageCount})    Arány: ${(
+        (user.messageCount / allMessages) *
+        100
+      ).toFixed(2)}%`
+  )
 }
