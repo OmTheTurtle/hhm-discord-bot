@@ -30,6 +30,7 @@ function formatUserMessage(userMessage, prefix) {
     author: userMessage.author,
     member: userMessage.member,
     mentions: userMessage.mentions,
+    rawMessage: messageArguments.join(" "),
   }
 }
 
