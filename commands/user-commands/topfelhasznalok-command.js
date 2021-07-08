@@ -43,7 +43,7 @@ function generateEmbedFields(users, allMessages) {
 
 function createOldMessage(users, allMessages) {
   return `
-**Top 10 legaktívabb felhasználó**\n:
+**Top 10 legaktívabb felhasználó**:\n
 ${generateOldFields(users, allMessages).join("\n")}
 `
 }
