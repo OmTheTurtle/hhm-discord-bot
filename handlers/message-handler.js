@@ -51,7 +51,7 @@ async function executeCommand(message, lastFolderInPath) {
 function handleCommandError(message, error) {
   if (message.channel != DEVELOPER_CHANNEL_ID) {
     message.channel.send(
-      `<@${DEVELOPER_GUNTHER_USER_ID}> éppen "újraírás" címszóval szétbassza mindenem, így most csak néhány parancsom működik. \`!help\` a működő parancsok lekérdezéséhez.`
+      `Vagy nincs ilyen parancs, vagy <@${DEVELOPER_GUNTHER_USER_ID}> megint elbaszott valamit. \`!help\` a működő parancsok lekérdezéséhez.`
     )
     console.error(error)
   }
