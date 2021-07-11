@@ -22,14 +22,11 @@ function formatUserMessage(userMessage, prefix) {
     .slice(prefix.length)
     .trim()
     .split(" ")
-  let command = messageArguments.shift()
+  let command = messageArguments.shift().toLowerCase()
   return {
+    ...userMessage,
     arguments: messageArguments,
     command,
-    channel: userMessage.channel,
-    author: userMessage.author,
-    member: userMessage.member,
-    mentions: userMessage.mentions,
     rawMessage: messageArguments.join(" "),
   }
 }

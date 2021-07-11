@@ -59,7 +59,7 @@ function generateNewHelp() {
             "~~`!kuss @felhasználó` - Felhasználó némítása 1 órára 1000 tallérért cserébe~~\n" +
             "~~`!felvesz` - Tallérok felvétele~~\n" +
             "~~`!rablas @felhasználó` -Felhasználó kirablásának megkísérlése~~\n" +
-            "~~`!atnevez @felhasználó új becenév` - Felhasználó átnevezése 200 tallérért cserébe~~\n" +
+            "`!atnevez @felhasználó új becenév` - Felhasználó átnevezése 200 tallérért cserébe\n" +
             "~~`!bet` - Fogadás a holnapi covid fertőzöttekre~~",
         },
         {
@@ -120,7 +120,7 @@ X   adomany @név összeg - Adomány küldése
 X   kuss @név - Felhasználó némítása 1 órára 1000 tallérért cserébe
 X   felvesz - Tallérok felvétele
 X   rablas - megpróbálsz kirabolni valakit a szerveren
-X   atnevez @név új becenév - Felhasználó átnevezése 200 tallérért cserébe
+    atnevez @név új becenév - Felhasználó átnevezése 200 tallérért cserébe
 
     ----- EGYÉB -----
     lolitext - Loli megmondja
