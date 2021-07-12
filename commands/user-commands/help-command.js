@@ -30,7 +30,7 @@ function generateNewHelp() {
         },
         {
           name: "Kaszinó",
-          value: "`!kockazas` - Kockavetés\n" + "~~`!fkr` - Félkarú rabló~~",
+          value: "`!kockazas` - Kockavetés\n" + "`!fkr` - Félkarú rabló",
         },
         {
           name: "Lekérdezés",
@@ -97,7 +97,7 @@ Parancsok:
 
     ----- KASZINÓ -----
     kockazas - Kockavetés Gyuri ellen
-X   fkr - Félkarú rabló
+    fkr - Félkarú rabló
 
     ----- LEKÉRDEZÉS -----
     batyum - Batyud lekérdezése
