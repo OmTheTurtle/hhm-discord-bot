@@ -13,7 +13,12 @@ module.exports = async (message) => {
     )
 
   const allCoins = await User.sum("coin")
-  message.channel.send(createEmbedMessage(users, allCoins))
+  const user = await User.findOne({ where: { discordId: message.author.id } })
+  if (user.oldView) {
+    message.channel.send(createOldMessage(users, allCoins))
+  } else {
+    message.channel.send(createEmbedMessage(users, allCoins))
+  }
 }
 
 function createEmbedMessage(users, allCoins) {
@@ -37,4 +42,21 @@ function generateEmbedFields(users, allCoins) {
     })
   }
   return fields
+}
+
+function createOldMessage(users, allCoins) {
+  return `
+**Top 10 leggazdagabb felhasználó**:\n
+${generateOldFields(users, allCoins).join("\n")}
+  `
+}
+
+function generateOldFields(users, allCoins) {
+  return users.map(
+    (user, index) =>
+      `${index + 1}. **${user.username}**\t Tallérok: ${user.coin}\t Arány: ${(
+        (user.coin / allCoins) *
+        100
+      ).toFixed(2)}%`
+  )
 }
