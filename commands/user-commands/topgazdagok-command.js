@@ -33,16 +33,10 @@ function createEmbedMessage(users, allCoins) {
 }
 
 function generateEmbedFields(users, allCoins) {
-  let fields = []
-  for (let i = 0; i < 10; i++) {
-    fields.push({
-      name: `${i + 1}. ${users[i].username}    Tallérok: ${users[i].coin}`,
-      value: `Szerver vagyonának ${((users[i].coin / allCoins) * 100).toFixed(
-        2
-      )}%-a`,
-    })
-  }
-  return fields
+  return users.map((user, index) => ({
+    name: `${index + 1}. ${user.username}\tTallérok: ${user.coin}`,
+    value: `Szerver vagyonának ${((user.coin / allCoins) * 100).toFixed(2)}%-a`,
+  }))
 }
 
 function createOldMessage(users, allCoins) {
