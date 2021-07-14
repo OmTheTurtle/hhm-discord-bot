@@ -1,3 +1,4 @@
+const { Op } = require("sequelize")
 const User = require("../../database/models/user")
 const { DEVELOPER_GUNTHER_USER_ID } = require("../../config/userIds.json")
 
@@ -12,7 +13,7 @@ module.exports = async (message) => {
       `<@${DEVELOPER_GUNTHER_USER_ID}> megint elbaszott valamit, így ezt most nem tudod lekérdezni.`
     )
 
-  const allCoins = await User.sum("coin")
+  const allCoins = await User.sum("coin", { where: { coin: { [Op.gt]: 0 } } })
   const user = await User.findOne({ where: { discordId: message.author.id } })
   if (user.oldView) {
     message.channel.send(createOldMessage(users, allCoins))
