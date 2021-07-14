@@ -55,7 +55,7 @@ function generateNewHelp() {
         {
           name: "Tallérhoz kapcsolódó",
           value:
-            "~~`!adomany @felhasználó összeg` - Adomány küldése~~\n" +
+            "`!adomany @felhasználó összeg` - Adomány küldése\n" +
             "~~`!kuss @felhasználó` - Felhasználó némítása 1 órára 1000 tallérért cserébe~~\n" +
             "~~`!felvesz` - Tallérok felvétele~~\n" +
             "`!rablas @felhasználó` -Felhasználó kirablásának megkísérlése\n" +
@@ -116,7 +116,7 @@ X   card - Legenerálja a HHM kártyád
     greentext - Random greentext redditről
 
     ----- TALLÉRHOZ KAPCSOLÓDÓ -----
-X   adomany @név összeg - Adomány küldése
+    adomany @név összeg - Adomány küldése
 X   kuss @név - Felhasználó némítása 1 órára 1000 tallérért cserébe
 X   felvesz - Tallérok felvétele
     rablas - megpróbálsz kirabolni valakit a szerveren
