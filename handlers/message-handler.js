@@ -7,7 +7,10 @@ module.exports = async (userMessage) => {
   if (!userMessage.author.bot) {
     if (userMessage.content.startsWith(DEFAULT_PREFIX))
       await tryToExecuteCommand(userMessage, DEFAULT_PREFIX, "user-commands")
-    else if (userMessage.content.startsWith(DEVELOPER_PREFIX))
+    else if (
+      userMessage.content.startsWith(DEVELOPER_PREFIX) &&
+      userMessage.author.id === DEVELOPER_GUNTHER_USER_ID
+    )
       await tryToExecuteCommand(
         userMessage,
         DEVELOPER_PREFIX,
