@@ -30,7 +30,10 @@ function generateNewHelp() {
         },
         {
           name: "Kaszinó",
-          value: "`!kockazas` - Kockavetés\n" + "`!fkr` - Félkarú rabló",
+          value:
+            "`!kockazas` - Kockavetés\n" +
+            "`!fkr` - Félkarú rabló" +
+            "`!kpo` - Kő-papír-olló Gyuri ellen",
         },
         {
           name: "Lekérdezés",
@@ -98,6 +101,7 @@ Parancsok:
     ----- KASZINÓ -----
     kockazas - Kockavetés Gyuri ellen
     fkr - Félkarú rabló
+    kpo - Kő-papír-olló Gyuri ellen
 
     ----- LEKÉRDEZÉS -----
     batyum - Batyud lekérdezése
