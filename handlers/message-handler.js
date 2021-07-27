@@ -54,14 +54,21 @@ function handleCommandError(message, error) {
       "Valszeg túl nagy képet akartam beilleszteni vagy nemtom. Próbáld újra."
     )
   }
+
+  if (message.channel.includes("Cannot find module")) {
+    return message.channel.send("Nincs ilyen parancs")
+  }
+
   if (message.channel != DEVELOPER_CHANNEL_ID) {
     message.channel.send(
       `Vagy nincs ilyen parancs, vagy <@${DEVELOPER_GUNTHER_USER_ID}> megint elbaszott valamit. \`!help\` a működő parancsok lekérdezéséhez.`
     )
     console.error(error)
   }
-  if (error.message.substring(0, 18) != "Cannot find module")
+
+  if (error.message.substring(0, 18) != "Cannot find module") {
     logToDeveloperChannel(message, error)
+  }
 }
 
 function logToDeveloperChannel(message, error) {
