@@ -1,4 +1,4 @@
 {
     "DEFAULT_PREFIX": "!",
-    "DEVELOPER_PREFIX": "$dev"
+    "DEVELOPER_PREFIX": "$"
 }
