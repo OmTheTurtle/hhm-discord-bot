@@ -56,7 +56,7 @@ function handleCommandError(message, error) {
   }
 
   if (error.message.includes("Cannot find module")) {
-    return message.channel.send("Nincs ilyen parancs")
+    return
   }
 
   if (message.channel != DEVELOPER_CHANNEL_ID) {
