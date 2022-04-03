@@ -22,6 +22,6 @@ module.exports = function (message) {
   }
 
   const random = Math.round(Math.random())
-  const splitMessage = message.rawMessage.toLowerCase().split("vagy")
+  const splitMessage = message.rawMessage.split(new RegExp("vagy", "gi"))
   return splitMessage[random].trim()
 }

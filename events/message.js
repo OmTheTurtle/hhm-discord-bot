@@ -9,7 +9,7 @@ module.exports = async (userMessage) => {
   else
     await user.update({
       messageCount: user.messageCount + 1,
-      coin: user.coin + 1,
+      coin: userMessage.content.toLowerCase() === "uwu" ? user.coin : user.coin + 1,
     })
 }
 
