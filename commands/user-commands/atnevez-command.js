@@ -1,10 +1,12 @@
 const User = require("../../database/models/user")
 
+const price = 400
+
 module.exports = async (message) => {
   const user = await User.findOne({ where: { discordId: message.author.id } })
-  if (user.coin < 200) {
+  if (user.coin < price) {
     return message.channel.send(
-      `${message.author.toString()}, túl csóró vagy az átnevezéshez (200 tallér)`
+      `${message.author.toString()}, túl csóró vagy az átnevezéshez (${price} tallér)`
     )
   }
 
@@ -26,7 +28,7 @@ module.exports = async (message) => {
   } else {
     userToRename.setNickname(newName)
     await user.update({
-      coin: user.coin - 200,
+      coin: user.coin - price,
     })
 
     await message.channel.send(
