@@ -16,8 +16,8 @@ module.exports = async (message) => {
   }
 
   if (
-    message.mentions.members.first().id === user.discordId ||
-    message.mentions.members.array().length != 1
+    message.mentions.members.array().length != 1 ||
+    message.mentions.members.first().id === user.discordId
   ) {
     return await message.channel.send(
       `${message.author.toString()}, te még zsebtolvajnak is hülye vagy.`
