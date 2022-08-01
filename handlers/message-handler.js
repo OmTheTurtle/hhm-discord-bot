@@ -51,7 +51,7 @@ async function executeCommand(message, lastFolderInPath) {
 function handleCommandError(message, error) {
   if (error.message.includes("Request entity too large")) {
     return message.channel.send(
-      "Valszeg túl nagy képet akartam beilleszteni vagy nemtom. Próbáld újra."
+      "Ez most nem sikerült. Próbáld újra."
     )
   }
 
