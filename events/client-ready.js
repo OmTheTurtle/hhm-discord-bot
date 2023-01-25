@@ -31,8 +31,13 @@ async function createCronJob(client) {
             setTimeout(async () => {
                 const now = new Date();
 
-                if (now.getDay() === 3) {
-                    return await message.channel.send({files: [await findRandomImage()]});
+                try {
+                    if (now.getDay() === 3) {
+                        await message.channel.send({files: [await findRandomImage()]});
+                        return
+                    }
+                } catch (err) {
+                    console.log(err)
                 }
 
                 channel.send('Új :sunny:, új :bread:.');
