@@ -51,7 +51,7 @@ async function executeCommand(message, lastFolderInPath) {
 function handleCommandError(message, error) {
   if (error.message.includes("Request entity too large")) {
     return message.channel.send(
-      "Ez most nem sikerült. Próbáld újra."
+      "Nem"
     )
   }
 
@@ -61,7 +61,7 @@ function handleCommandError(message, error) {
 
   if (message.channel != DEVELOPER_CHANNEL_ID) {
     message.channel.send(
-      `Vagy nincs ilyen parancs, vagy <@${DEVELOPER_GUNTHER_USER_ID}> megint elbaszott valamit. \`!help\` a működő parancsok lekérdezéséhez.`
+      `Hagyjama.`
     )
     console.error(error)
   }
